@@ -51,3 +51,30 @@ $(".btn").click(function () {
   var userChosenColour = $(this).attr("id"); // 2. Inside the handler, create a new variable called userChosenColour to store the id of the button that got clicked.
   userClickedPattern.push(userChosenColour);
 });
+
+// Step 5 - Add Sounds to Button Clicks
+
+// 1. In the same way we played sound in nextSequence() , when a user clicks on a button, 
+// the corresponding sound should be played. e.g if the Green button is clicked, then green.mp3 should be played.
+
+
+$(".btn").click(function (){
+    var eventt = $(this).attr("id");
+    if (eventt=== "blue"){
+        var blue = new Audio("sounds/blue.mp3");
+        blue.play();
+        console.log($(event))
+    } 
+    else  if (eventt === "green"){
+        var green = new Audio("sounds/green.mp3");
+        green.play();
+    }
+    else  if (eventt === "red"){
+        var red = new Audio("sounds/red.mp3");
+        red.play();
+    }
+    else  if (eventt === "yellow"){
+        var yellow = new Audio("sounds/yellow.mp3");
+        yellow.play();
+    }
+})
