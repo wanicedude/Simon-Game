@@ -1,94 +1,53 @@
 // ==================== Step 2: Create a new pattern    ===========================
 
-// Create an empty array
-gamePattern = []
-
-
 // Create a list of colours
-buttonColours = ["red", "blue", "green", "yellow"]
-
+buttonColours = ["red", "blue", "green", "yellow"];
 
 // Create a function that generates random number between 0 and 3
+var gamePattern = [];
+
 function nextSequence() {
-    var randomNumber = Math.floor(Math.random() * 4) ;
-    return randomNumber;
+  var randomNumber = Math.floor(Math.random() * 4);
+  return randomNumber;
 }
 
-
 // assign random colour
-randomChosenColour = buttonColours[nextSequence()]
+randomChosenColour = buttonColours[nextSequence()];
 
 // push random color to gamePattern
-gamePattern.push(randomChosenColour)
+gamePattern.push(randomChosenColour);
 
-3198286289
-
-
+// 3198286289
 
 // ==================== Step 3: Show the Sequence to the User with Animations and Sounds    ===========================
 
- var buttonColour = $("#" + randomChosenColour).fadeIn(105).fadeOut(105).fadeIn(105);
-//  console.log(buttonColour);
-// Play Sounds
+var buttonColour = $("#" + randomChosenColour)
+  .fadeIn(105)
+  .fadeOut(105)
+  .fadeIn(105);
 
-
-var audio = new Audio('audio_file.mp3');
-audio.play();
-
-function makeSound (num){
-    if (num[0] === "blue"){
-        var blue = new Audio("sounds/blue.mp3");
-        blue.play();
-        console.log(num[0])
-    }else if (num[0] === "green"){
-        var green = new Audio("sounds/green.mp3");
-        green.play();
-        console.log(num[0])
-    }else if (num[0] === "red"){
-        var red = new Audio("sounds/red.mp3");
-        red.play();
-        console.log(num[0])
-    }
-    else if (num[0] === "yellow"){
-        var yellow = new Audio("sounds/yellow.mp3");
-        yellow.play();
-        console.log(num[0])
-    }
-
+if (gamePattern[0] === "blue") {
+  var blue = new Audio("sounds/blue.mp3");
+  blue.play();
+} else if (gamePattern[0] === "green") {
+  var green = new Audio("sounds/green.mp3");
+  green.play();
+} else if (gamePattern[0] === "red") {
+  var red = new Audio("sounds/red.mp3");
+  red.play();
+} else if (gamePattern[0] === "yellow") {
+  var yellow = new Audio("sounds/yellow.mp3");
+  yellow.play();
 }
-console.log(gamePattern[0])
-makeSound(gamePattern)
-            
 
+// // ================================ Step 4 - Check Which Button is Pressed  ===============================
 
+// Create an empty array
+var userClickedPattern = [];
 
+// 1. Use jQuery to detect when any of the buttons are clicked and trigger a handler function.
 
-
-
-
-
-
-
-
-// $("button#red").ready(() => {
-//     setInterval(() => {
-//         $('p').fadeIn();
-//         $('p').fadeOut();
-//     }, 500);
-// });
-
-// $(document).ready(function (){
-//     setInterval(() => {
-//         $("button#red").fadeIn();
-//         $("button#red").fadeOut;
-//     }, 500);
-// })
-
-
-// var i;
-// for (i = 0; i < 5; i++){
-//     var butt = document.querySelectorAll(".row div");
-//     var butt1 = $(butt).attr("#id")
-//     console.log(butt1)
-// }
-
+$(".btn").click(function () {
+  var userChosenColour = $(this).attr("id"); // 2. Inside the handler, create a new variable called userChosenColour to store the id of the button that got clicked.
+  userClickedPattern.push(userChosenColour);
+});
